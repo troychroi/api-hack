@@ -2,8 +2,8 @@ $(document).ready(function() {
 
 $('form').submit(function(event) {
     event.preventDefault();
+      $('#results').find('img').remove();
       getData();
-      result = getData();
 });
 
 function getData() {  
@@ -25,12 +25,15 @@ function getData() {
       data: args,
       type: "GET",
       success: function(result) {
-          var items = result.photos.photo
+          var items = result.photos.photo;
           for (var i = 1; i < items.length; i++) {
             $("#results").append('<img src="https://farm'+ result.photos.photo[i].farm +'.staticflickr.com/'+ result.photos.photo[i].server +'/'+ result.photos.photo[i].id +'_'+ result.photos.photo[i].secret +'_m.jpg">');
           };     
       }
       })
+      .done(function() {
+        $("input[name='tags']").val('');
+      });
 }
 
 });
