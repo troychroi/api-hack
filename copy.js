@@ -40,6 +40,9 @@ function getData() {
       dataType: "json",
       data: args,
       type: "GET",
+      beforesend: function() {
+          $('#results').text('LOADING...');
+      },
       success: function(result) {
           var items = result.photos.photo;
           for (var i = 1; i < items.length; i++) {
