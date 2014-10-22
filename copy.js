@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var random = Math.floor((Math.random() * 10) + 1);
+var random = Math.floor((Math.random() * 9) + 1);
 var ideas = [
     "zombie",
     "Lady Gaga",
