@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+$('#loading').hide();
 var random = Math.floor((Math.random() * 9) + 1);
 var ideas = [
     "zombie",
@@ -19,6 +19,7 @@ $('input[name="tags"]').attr('placeholder', ideas[random]);
 $('form').submit(function(event) {
     event.preventDefault();
       $('#results').find('img').remove();
+      $('#loading').show();
       getData();
 });
 
@@ -40,9 +41,6 @@ function getData() {
       dataType: "json",
       data: args,
       type: "GET",
-      beforesend: function() {
-          $('#results').text('LOADING...');
-      },
       success: function(result) {
           var items = result.photos.photo;
           for (var i = 1; i < items.length; i++) {
@@ -52,6 +50,7 @@ function getData() {
       })
       .done(function() {
         $("input[name='tags']").val('');
+        $('#loading').hide();
       });
 }
 
