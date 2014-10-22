@@ -49,3 +49,16 @@ input {
 #rightPrompt {
 	text-align: left;
 }
+
+#results {
+	position: relative;
+	top: 20px;
+	margin: 0 auto;
+	width: 840px;
+	text-align: center;
+}
+
+img {
+	width: 200px;
+	float: left;
+}
